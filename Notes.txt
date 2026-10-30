@@ -1,0 +1,59 @@
+YT-Downloader-For-Windows (Uses Python & FFMPEG)
+
+https://github.com/jamieduk/YT-Downloader-For-Windows
+
+
+
+In command (cmd)
+
+# Setup
+
+setup.bat
+
+
+# To Use
+
+dl.bat
+
+
+
+
+Manual Setup & Usage
+
+winget install --id Gyan.FFmpeg.Essentials -e
+py -m pip install -U "yt-dlp[default]"
+
+py -m yt_dlp "VIDEO_URL"
+
+py -m yt_dlp "https://youtu.be/-n50uo8so4U"
+
+
+
+Example track to dl
+https://youtu.be/9IWBJnFoo5s
+
+
+
+
+
+Issues?
+
+Beware the audio may be not in the mp4 converted file so use the webm and convert that / extract mp3 audio from the webm file!
+
+
+# A fix to try 
+
+ffmpeg -i "video.mp4" -i "video.webm" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k "video_fixed.mp4"
+
+If you just want the sound as a separate MP3, run:
+ffmpeg -i "video.webm" -vn -q:a 2 "audio.mp3"
+
+
+The actual fix to prevent extra steps is simple install ffmpeg 1st
+. Install FFmpeg automatically
+Since you're already using Command Prompt, try this single command:
+winget install --id Gyan.FFmpeg.Essentials -e
+
+
+
+
